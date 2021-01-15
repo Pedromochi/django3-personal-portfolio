@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'u3umqryo)rzeybsl!6o1bj)xxx*n(j%a*(ou+0&vb$)43z%*89'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pedromochi.pythonanywhere.com']
 
@@ -125,3 +125,8 @@ STATIC_ROOT= BASE_DIR / 'static'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file.You must be on production")
